@@ -69,7 +69,7 @@ class users(db.Model, BaseModel):
     __tablename__ = 'users'
 
     id = db.Column(db.Integer, primary_key=True)
-    full_name = db.Column(db.String(100), nullable=False)
+    full_name = db.Column(db.String(100))
     gender = db.Column(db.String(10))
     age = db.Column(db.Integer)
     weight = db.Column(db.Float)

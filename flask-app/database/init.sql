@@ -1,7 +1,12 @@
+-- Delete all tables before creating
+DROP TABLE IF EXISTS users CASCADE;
+DROP TABLE IF EXISTS auth CASCADE;
+DROP TABLE IF EXISTS records CASCADE;
+
 -- Table to save users meta info
 CREATE TABLE IF NOT EXISTS users (
     id SERIAL PRIMARY KEY,
-    full_name VARCHAR(100) NOT NULL,
+    full_name VARCHAR(100),
     gender VARCHAR(10),
     age INTEGER,
     weight FLOAT,

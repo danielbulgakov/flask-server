@@ -1,6 +1,6 @@
 from flask import Blueprint, request, jsonify
 from flask_jwt_extended import create_access_token, create_refresh_token, jwt_required
-from database.db import auth, DBStatus
+from database.db import auth, DBStatus, users
 
 common_auth_bp = Blueprint('auth', __name__)
 
@@ -55,8 +55,14 @@ def register_post():
 
     if status == DBStatus.OK and existing_email_record:
         return jsonify({"msg": "Email already registered"}), 400
+    
+    new_user_record = users()
+    status_user = new_user_record.create()
+    
+    if status_user != DBStatus.OK:
+        return jsonify({"msg": "Failed to register user"}), 500
 
-    new_auth_record = auth(login=login, password=password, email=email)
+    new_auth_record = auth(login=login, password=password, email=email, user_id=new_user_record.id)
     status = new_auth_record.create()
 
     if status == DBStatus.OK:
@@ -65,13 +71,25 @@ def register_post():
         return jsonify({"msg": "Failed to register user"}), 500
 
 """ REMOVE """
-@common_auth_bp.route('/users', methods=['GET'])
-def get_all_users():
+@common_auth_bp.route('/auths', methods=['GET'])
+def get_all_auths():
     from database.db import auth
     auths, status = auth.return_all()
 
     if status == DBStatus.OK:
-        user_data = [{"id": auth.id, "login": auth.login, "email": auth.email} for auth in auths]
+        user_data = [{"id": auth.id, "login": auth.login, "email": auth.email, "id_user": auth.user_id} for auth in auths]
+        return jsonify({"auths": user_data}), 200
+    else:
+        return jsonify({"msg": "Failed to fetch users"}), 500
+
+""" REMOVE """
+@common_auth_bp.route('/users', methods=['GET'])
+def get_all_users():
+    from database.db import users
+    users, status = users.return_all()
+
+    if status == DBStatus.OK:
+        user_data = [{"id": users.id} for users in users]
         return jsonify({"users": user_data}), 200
     else:
         return jsonify({"msg": "Failed to fetch users"}), 500

@@ -3,9 +3,9 @@ import requests
 url = 'http://127.0.0.1:5000/api/register'
 
 data = {
-    'login': 'vlad',
-    'password': 'bogdan',
-    'email': "bulgach09@gmail.com"
+    'login': 'va',
+    'password': 'bd',
+    'email': "bch09@rambler.com"
 }
 
 response = requests.post(url, json=data)
