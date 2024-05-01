@@ -1,5 +1,5 @@
 -- Table to save users meta info
-CREATE TABLE IF NOT EXISTS Users (
+CREATE TABLE IF NOT EXISTS users (
     id SERIAL PRIMARY KEY,
     full_name VARCHAR(100) NOT NULL,
     gender VARCHAR(10),
@@ -9,7 +9,7 @@ CREATE TABLE IF NOT EXISTS Users (
 );
 
 -- Table to save users auth data
-CREATE TABLE IF NOT EXISTS Auth (
+CREATE TABLE IF NOT EXISTS auth (
     id SERIAL PRIMARY KEY,
     login VARCHAR(120) UNIQUE NOT NULL,
     password VARCHAR(120) NOT NULL,
@@ -18,7 +18,7 @@ CREATE TABLE IF NOT EXISTS Auth (
 );
 
 -- Table to save users ECG records
-CREATE TABLE IF NOT EXISTS Records (
+CREATE TABLE IF NOT EXISTS records (
     id SERIAL PRIMARY KEY,
     reading_date DATE NOT NULL,
     time_interval INTERVAL NOT NULL,

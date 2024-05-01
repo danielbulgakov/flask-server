@@ -15,9 +15,11 @@ class BaseModel:
     # Create a new record in the database
     def create(self):
         try:
+            db.session.add(self)
             db.session.commit()
             return DBStatus.OK
         except Exception as e:
+            db.session.rollback()
             print(f"Error creating record: {e}")
             return DBStatus.ERROR
 
@@ -31,11 +33,14 @@ class BaseModel:
             return None, DBStatus.ERROR
 
     # Update an existing record
-    def update(self):
+    def update(self, **kwargs):
         try:
+            for key, value in kwargs.items():
+                setattr(self, key, value)
             db.session.commit()
             return DBStatus.OK
         except Exception as e:
+            db.session.rollback()
             print(f"Error updating record: {e}")
             return DBStatus.ERROR
 
@@ -46,6 +51,7 @@ class BaseModel:
             db.session.commit()
             return DBStatus.OK
         except Exception as e:
+            db.session.rollback()
             print(f"Error deleting record: {e}")
             return DBStatus.ERROR
 

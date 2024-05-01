@@ -1,7 +1,7 @@
 version: '3.8'
 
 services:
-  web:
+ web:
     build: 
       context: .
       dockerfile: Dockerfile
@@ -14,12 +14,8 @@ services:
       - FLASK_ENV=development
     volumes:
       - .:/app
-  postgres:
+ postgres:
     image: postgres
-    environment:
-      POSTGRES_USER: root
-      POSTGRES_PASSWORD: root
-      POSTGRES_DB: users_db
     restart: always
     ports:
       - "5432:5432"
@@ -29,4 +25,4 @@ services:
     command: ["postgres", "-c", "log_statement=all"]
 
 volumes:
-  postgres_data:
+ postgres_data:

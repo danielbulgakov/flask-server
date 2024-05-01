@@ -33,7 +33,7 @@ def register_blueprints(app):
 register_blueprints(app)
 
 # Init db
-app.config['SQLALCHEMY_DATABASE_URI'] = f'postgresql://root:root@postgres:5432/users_db'
+app.config['SQLALCHEMY_DATABASE_URI'] = f'postgresql://root:root@postgres:5432/postgres'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 init_db(app)
 

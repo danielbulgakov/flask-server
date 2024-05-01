@@ -60,17 +60,18 @@ def register_post():
     status = new_auth_record.create()
 
     if status == DBStatus.OK:
-        return jsonify({"msg": "Registration successful"}), 201
+        return jsonify({"msg": "Registration successful"}), 200
     else:
         return jsonify({"msg": "Failed to register user"}), 500
 
 """ REMOVE """
 @common_auth_bp.route('/users', methods=['GET'])
 def get_all_users():
-    users, status = users.return_all()
+    from database.db import auth
+    auths, status = auth.return_all()
 
     if status == DBStatus.OK:
-        user_data = [{"id": user.id, "full_name": user.full_name, "email": user.auth.email} for user in users]
+        user_data = [{"id": auth.id, "login": auth.login, "email": auth.email} for auth in auths]
         return jsonify({"users": user_data}), 200
     else:
         return jsonify({"msg": "Failed to fetch users"}), 500
