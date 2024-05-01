@@ -4,3 +4,4 @@ flask_sqlalchemy
 Jinja2
 Werkzeug
 psycopg2
+flask_jwt_extended

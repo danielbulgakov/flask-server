@@ -13,7 +13,8 @@ class DBStatus:
 class BaseModel:
 
     # Create a new record in the database
-    def create(self):￼
+    def create(self):
+        try:
             db.session.commit()
             return DBStatus.OK
         except Exception as e:
