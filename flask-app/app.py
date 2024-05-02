@@ -1,8 +1,9 @@
 from flask import Flask, render_template
+from api.common.register_routes import CommonBPRegister
+from api.web.register_routes import WebBPRegister
 from flask_jwt_extended import JWTManager
 from flask_jwt_extended.exceptions import NoAuthorizationError, InvalidHeaderError, JWTDecodeError
 from datetime import timedelta
-from api.common.register_routes import register_common_blueprints
 from database.db import init_db
 
 app = Flask(__name__)
@@ -26,11 +27,8 @@ def handle_expired_signature_error(e):
     return jsonify({"msg": "Token has expired"}), 401
 
 # Register blueprints
-def register_blueprints(app):
-    register_common_blueprints(app)
-
-# Init dependency modules
-register_blueprints(app)
+CommonBPRegister(app)
+WebBPRegister(app)
 
 # Init db
 app.config['SQLALCHEMY_DATABASE_URI'] = f'postgresql://root:root@postgres:5432/postgres'

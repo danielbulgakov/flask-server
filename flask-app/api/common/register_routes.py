@@ -1,6 +1,11 @@
 from api.common.auth.routes import common_auth_bp
 
 common_prefix='/api'
-def register_common_blueprints(app):
-    # Register auth blueprint
-    app.register_blueprint(common_auth_bp, url_prefix=common_prefix)
+
+class CommonBPRegister:
+    def __init__(self, app):
+        self.app = app
+        self.register_blueprints()
+
+    def register_blueprints(self):
+        self.app.register_blueprint(common_auth_bp, url_prefix=common_prefix)
