@@ -1,0 +1,194 @@
+% Compiler parameters
+
+\documentclass[12pt, russian]{extarticle}
+\usepackage[utf8]{inputenc}
+\usepackage[T2A]{fontenc}
+\usepackage{fontspec} 
+\defaultfontfeatures{Ligatures={TeX},Renderer=Basic} 
+\setmainfont[Ligatures={TeX,Historic}]{Times New Roman}
+\usepackage[a4paper,
+left=25mm,
+right=15mm,
+top=20mm,
+bottom=20mm]{geometry}
+\usepackage[linktoc=all]{hyperref}
+\usepackage{titlesec}
+\titlelabel{\thetitle.\quad} 
+\usepackage{tocloft}
+
+% \renewcommand{\cfttoctitlefont}{\normalfont\Large}% Remove \bfseries from ToC title
+\renewcommand{\cftsecfont}{}% Remove \bfseries from section titles in ToC
+\renewcommand{\cftsecpagefont}{}% Remove \bfseries from section titles' page in ToC
+\renewcommand{\cftsecaftersnum}{.}%
+
+\usepackage{titlesec}
+\usepackage{todonotes}
+
+\titleformat*{\section}{\large\bfseries} % Здесь можно указать желаемый размер шрифта для \section
+\titleformat*{\subsection}{\large\bfseries} % Здесь можно указать желаемый размер шрифта для \subsection
+\titleformat*{\subsubsection}{\large\bfseries}
+
+\setlength{\parindent}{1.25cm}
+\setlength{\parskip}{0.4cm}
+\font\subtitlefont=cmr12 at 12pt
+\font\titlefont=cmr12 at 24pt
+\usepackage{color}
+\usepackage{mathtools}
+\usepackage{listings}
+\usepackage{graphicx}
+\usepackage{tocloft}
+\usepackage{indentfirst}
+\usepackage{enumitem}
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{babel}
+\usepackage{setspace}
+\renewcommand{\contentsname}{}
+\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
+\graphicspath{ {./resources/} }
+\usepackage{listings}
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+\lstset{frame=none,
+	language=C++,
+	aboveskip=3mm,
+	belowskip=3mm,
+	showstringspaces=false,
+	columns=flexible,
+	basicstyle={\small\ttfamily},
+	numbers=none,
+	numberstyle=\tiny\color{gray},
+	keywordstyle=\color{blue},
+	commentstyle=\color{dkgreen},
+	stringstyle=\color{mauve},
+	breaklines=true,
+	breakatwhitespace=true,
+	tabsize=4
+}
+
+% End of compiler parameters
+
+\title{}
+\author{}
+\date{}
+
+\begin{document}
+
+    \begin{titlepage}
+
+        \begin{center}
+            МИНИСТЕРСТВО ОБРАЗОВАНИЯ И НАУКИ РОССИЙСКОЙ ФЕДЕРАЦИИ \\
+            Федеральное государственное автономное образовательное \\
+            учреждение высшего образования \\
+            «Национальный исследовательский Нижегородский государственный университет им. Н.И. Лобачевского»\\
+        \end{center}
+        
+        \bigbreak
+
+        \begin{center}
+            Институт информационных технологий, математики и механики \\
+            {\bfseries Кафедра Математического обеспечения и суперкомпьютерных технологий} \\
+            Направление подготовки ``Инженерия программного обеспечения"
+        \end{center}
+
+        \vspace{2em}
+    
+        \begin{center}
+            ОТЧЁТ \\ по учебной практике на тему \\
+            {\bfseries ``Разработка программно-аппаратного комплекса для мониторинга показателей сердца
+            человека''}
+        \end{center}
+
+        \vspace{5em}
+    
+        \begin{flushright}
+            {\bfseries Выполнил:} \\студент группы 382008-1\\Булгаков Д.Э.\\ 
+            \hfill Подпись \hspace{5em} \newline \\ 
+            {\bfseries Проверил:} \\к.т.н., доц.\\ Борисов Н.А. \\ 
+            \hfill Подпись \hspace{5em} \newline \\
+        \end{flushright}
+    
+    
+        \vspace{\fill}
+    
+        \begin{center}
+            Нижний Новгород\\2024
+        \end{center}
+    \end{titlepage}
+
+    \begin{spacing}{1.5}
+
+    % Содержание
+    
+    \tableofcontents
+    \thispagestyle{empty}
+    \newpage
+    
+    \pagestyle{plain}
+    \setcounter{page}{3}
+
+    % Введение
+    \newpage
+    \section{Введение}
+
+    Заболевания сердца и сосудов, ставшие ведущей причиной смертности по всему миру,
+находятся в центре внимания медицинского сообщества. Ишемическая болезнь сердца, арте-
+риальная гипертензия и другие патологии сердечно-сосудистой системы требуют серьезного
+подхода к диагностике и профилактике.
+
+Сердечно-сосудистая система, сложная в своей структуре и функциональности, подвер-
+гается различным воздействиям, которые могут привести к серьезным нарушениям. В этом
+контексте регулярные обследования приобретают ключевое значение. Они не только предо-
+ставляют возможность выявления начальных стадий заболеваний до появления явных симп-
+томов, но и открывают перспективы для раннего вмешательства и эффективной профилакти-
+ки. Такой подход становится неотъемлемой частью стратегии поддержания здоровья сердечно-
+сосудистой систе
+мы в условиях современного образа жизни.
+
+    % Постановка задачи
+    \newpage
+    \section{Постановка задачи.}
+
+    \begin{enumerate}
+        \item \textbf{Выбрать стек технологий, на основе которых будет написан back-end сервера.}
+            \begin{itemize}
+                \item Определить язык программирования для сервера.
+                \item Определить какую библиотеку использовать для написания сервера.
+                \item Выбрать подходящую базу данных.
+            \end{itemize}
+        \item \textbf{Определить сценарии использования сервера.} \\
+            Сценарии использования разделены на следующие платформы:
+            \begin{itemize}
+                \item Web сайт на основе Vue.js
+                \item Electron приложение.
+            \end{itemize}
+            Общие сценарии можно обобщить и выделить в отдельную компоненту.
+        \item \textbf{Разработать архитектуру сервера.}
+        \item \textbf{Реализовать архитектуру.}
+    \end{enumerate}
+
+    \newpage
+    \section{Проведенная работа.}
+
+    \newpage
+    \subsection{Стек технологий.}
+
+    \newpage
+    \subsection{Сценарии использования.}
+
+    \newpage
+    \subsection{Разработка и реализация архитектуры.}
+
+    \newpage
+    \section{Заключение.}
+
+    \newpage
+    \section{Список литературы.}
+
+    \newpage
+    \section{приложение.}
+    
+    \end{spacing}
+\end{document}
