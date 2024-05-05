@@ -15,9 +15,8 @@ def upload_ecg():
         return jsonify({"msg": "Missing ECG data"}), 400
 
     # Save ECG data to the database
-    # Assuming ecg_data is a model representing the ECG data table in your database
     new_ecg_record = ecg_data(ecg_data=ecg_data)
-    new_ecg_record.save()  # Assuming a save method to save the record in the database
+    new_ecg_record.save()
 
     return jsonify({"msg": "ECG data uploaded successfully"}), 200
 

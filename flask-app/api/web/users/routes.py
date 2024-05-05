@@ -1,6 +1,6 @@
 from flask import Blueprint, request, jsonify
 from flask_jwt_extended import jwt_required, get_jwt_identity
-from database.db import Users  # Assuming "Users" is the name of your table model
+from database.db import Users
 
 web_bp = Blueprint('web', __name__)
 
@@ -22,8 +22,7 @@ def update_profile():
     if not user:
         return jsonify({"msg": "User not found"}), 404
 
-    user.birthdate = birthdate  # Assuming "birthdate" is a column in your Users table
-    # You can add more fields to update here as needed
+    user.birthdate = birthdate
 
     # Commit changes to the database
     db.session.commit()
