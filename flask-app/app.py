@@ -1,4 +1,5 @@
 from flask import Flask, render_template
+from api.app.register_routes import AppBPRegister
 from api.common.register_routes import CommonBPRegister
 from api.web.register_routes import WebBPRegister
 from flask_jwt_extended import JWTManager
@@ -29,6 +30,7 @@ def handle_expired_signature_error(e):
 # Register blueprints
 CommonBPRegister(app)
 WebBPRegister(app)
+AppBPRegister(app)
 
 # Init db
 app.config['SQLALCHEMY_DATABASE_URI'] = f'postgresql://root:root@postgres:5432/postgres'
