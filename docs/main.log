@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2022/dev/Debian) (preloaded format=xelatex 2024.5.5)  6 MAY 2024 19:32
+This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2022/dev/Debian) (preloaded format=xelatex 2024.5.5)  6 MAY 2024 20:45
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -695,8 +695,7 @@ Package babel Info: Default for \cyrdash is provided on input line 163.
 Package: setspace 2011/12/19 v6.7a set line spacing
 ) (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2020/03/24 1.8d listings language file
-)
-No file main.aux.
+) (./main.aux)
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 72.
@@ -709,7 +708,7 @@ LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 72.
 LaTeX Font Info:    ... okay on input line 72.
 LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 72.
 LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 72.
-(/usr/share/texlive/texmf-dist/tex/latex/base/ts1cmr.fd
+ (/usr/share/texlive/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 )
 LaTeX Font Info:    ... okay on input line 72.
@@ -829,12 +828,10 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 LaTeX Info: Redefining \ref on input line 72.
 LaTeX Info: Redefining \pageref on input line 72.
 LaTeX Info: Redefining \nameref on input line 72.
+ (./main.out) (./main.out)
 \@outlinefile=\write4
 \openout4 = `main.out'.
 
-
-
-Package hyperref Warning: Rerun to get /PageLabels entry.
 
 
 Package todonotes Warning: The length marginparwidth is less than 2cm and will most likely cause issues with the appearance of inserted todonotes. The issue can be solved by adding a line like \setlength {\marginparwidth }{2cm} prior to loading the todonotes package. on input line 72.
@@ -845,7 +842,7 @@ Package caption Info: End \AtBeginDocument code.
 LaTeX Info: Redefining \th on input line 72.
 [1
 
-]
+] (./main.toc)
 \tf@toc=\write5
 \openout5 = `main.toc'.
 
@@ -870,25 +867,16 @@ Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on in
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
-
-Package rerunfilecheck Warning: File `main.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `main.out':
-(rerunfilecheck)             Before: <no file>
-(rerunfilecheck)             After:  8B775E9EBFA825BD9D018F40BCDD950B;4983.
+Package rerunfilecheck Info: File `main.out' has not changed.
+(rerunfilecheck)             Checksum: 8B775E9EBFA825BD9D018F40BCDD950B;4983.
  ) 
 Here is how much of TeX's memory you used:
- 28686 strings out of 477444
- 575539 string characters out of 5846099
+ 28724 strings out of 477444
+ 576035 string characters out of 5846099
  1169709 words of memory out of 5000000
- 48808 multiletter control sequences out of 15000+600000
- 471185 words of font info for 53 fonts, out of 8000000 for 9000
+ 48827 multiletter control sequences out of 15000+600000
+ 474313 words of font info for 66 fonts, out of 8000000 for 9000
  682 hyphenation exceptions out of 8191
- 115i,6n,131p,457b,2182s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 115i,6n,131p,622b,2182s stack positions out of 5000i,500n,10000p,200000b,80000s
 
 Output written on main.pdf (29 pages).
