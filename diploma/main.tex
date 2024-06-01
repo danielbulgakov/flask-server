@@ -1,0 +1,240 @@
+% =============================================================================
+% Compile parameters
+% =============================================================================
+
+\documentclass[12pt, russian]{extarticle}
+\usepackage[utf8]{inputenc}
+\usepackage[T2A]{fontenc}
+\usepackage{fontspec}
+\defaultfontfeatures{Ligatures={TeX},Renderer=Basic}
+\setmainfont[Ligatures={TeX,Historic}]{Times New Roman}
+\usepackage[a4paper,
+left=25mm,
+right=15mm,
+top=20mm,
+bottom=20mm]{geometry}
+\usepackage[linktoc=all]{hyperref}
+\usepackage{titlesec}
+\titlelabel{\thetitle.\quad}
+\usepackage{tocloft}
+
+% Remove \bfseries from section titles in ToC
+\renewcommand{\cftsecfont}{}
+% Remove \bfseries from section titles' page in ToC
+\renewcommand{\cftsecpagefont}{}
+\renewcommand{\cftsecaftersnum}{.}
+\usepackage{titlesec}
+
+% Change font size for types
+\titleformat*{\section}{\large\bfseries}
+\titleformat*{\subsection}{\large\bfseries}
+\titleformat*{\subsubsection}{\large\bfseries}
+
+\setlength{\parindent}{1.25cm}
+\setlength{\parskip}{0.4cm}
+\font\subtitlefont=cmr12 at 12pt
+\font\titlefont=cmr12 at 24pt
+\usepackage{color}
+\usepackage{mathtools}
+\usepackage{listings}
+\usepackage{graphicx}
+\usepackage{tocloft}
+\usepackage{indentfirst}
+\usepackage{enumitem}
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{babel}
+\usepackage{setspace}
+\renewcommand{\contentsname}{}
+\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
+\graphicspath{ {./resources/} }
+
+\usepackage{listings}
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+\lstset{
+    language=Python,
+    basicstyle=\ttfamily\small,
+    keywordstyle=\color{blue},
+    commentstyle=\color{dkgreen},
+    stringstyle=\color{mauve},
+    stepnumber=1,
+    breaklines=true,
+    breakatwhitespace=true,
+    tabsize=4,
+    captionpos=tl,
+}
+
+% =============================================================================
+% End of compile parameters
+% =============================================================================
+
+\title{}
+\author{}
+\date{}
+
+\begin{document}
+
+% =============================================================================
+% Global titlepage
+% =============================================================================
+
+\begin{titlepage}
+
+    \begin{center}
+        МИНИСТЕРСТВО НАУКИ И ВЫСШЕГО ОБРАЗОВАНИЯ РОССИЙСКОЙ ФЕДЕРАЦИИ \\
+        Федеральное государственное автономное образовательное учреждение \\
+        высшего образования \\
+        \textbf{
+            «Национальный исследовательский \\
+            Нижегородский государственный университет им. Н.И. Лобачевского»\\ (ННГУ)
+        }
+    \bigbreak
+
+    \vspace{2em}
+        \textbf{
+            Институт информационных технологий, математики и механики
+            \bigbreak
+            Кафедра математического обеспечения и суперкомпьютерных технологий
+        }
+
+        Направление подготовки: «Программная инженерия» \\
+        Профиль подготовки: «Разработка программно-информационных систем»
+
+        \bigbreak
+        \bigbreak
+        \bigbreak
+
+        \textbf{ВЫПУСКНАЯ КВАЛИФИКАЦИОННАЯ РАБОТА БАКАЛАВРА}
+        \bigbreak
+
+        на тему \\
+        {\bfseries ``Разработка программно-аппаратного комплекса для мониторинга показателей сердца
+        человека''}
+    \end{center}
+
+    \vspace{5em}
+
+    \begin{flushright}
+        {\bfseries Выполнил:} студент группы \\ 382008-1 Булгаков Даниил Эдуардович\\
+        \hfill Подпись \hspace{5em} \newline \\
+        {\bfseries Научный руководитель:} \\доцент кафедры МОСТ, к.т.н., \\ Борисов Николай Анатольевич \\
+        \hfill Подпись \hspace{5em} \newline \\
+    \end{flushright}
+
+
+    \vspace{\fill}
+
+    \begin{center}
+        Нижний Новгород\\2024
+    \end{center}
+
+\end{titlepage}
+
+% =============================================================================
+% Main content
+% =============================================================================
+
+% ========== Set global spacing ==========
+\begin{spacing}{1.5}
+
+% ========== Table of content ==========
+\tableofcontents
+\thispagestyle{empty}
+\newpage
+
+% Params to make the following text start with
+% its page number
+\pagestyle{plain}
+\setcounter{page}{3}
+
+% ========== Introduction ==========
+\section{Введение}
+
+В последние десятилетия наблюдается значительный рост числа заболеваний сердечно-сосудистой системы, что делает мониторинг состояния сердца важной задачей в области медицины. Одним из наиболее распространенных методов диагностики и наблюдения за состоянием сердца является электрокардиография (ЭКГ). ЭКГ представляет собой графическую запись электрической активности сердца, которая позволяет выявлять различные аномалии, такие как аритмии, ишемия, инфаркты и другие патологии. Данный метод широко применяется благодаря своей информативности, неинвазивности и доступности.
+
+Несмотря на то, что традиционные стационарные системы ЭКГ являются высокоэффективными, их использование ограничено условиями медицинских учреждений. Пациенты, особенно те, кто страдает хроническими заболеваниями, нуждаются в постоянном мониторинге сердечной активности, что затруднительно в условиях стационара. В этой связи актуальной становится разработка портативных систем для непрерывного мониторинга показателей сердца в повседневной жизни.
+
+Цель данной дипломной работы заключается в разработке программно-аппаратного комплекса для мониторинга показателей сердца человека. Комплекс включает в себя модуль для снятия ЭКГ, приложение для передачи данных с модуля на сервер для сбора, анализа и хранения данных. Такое решение позволяет не только повысить качество мониторинга, но и обеспечить своевременное реагирование на изменения состояния здоровья пациента.
+
+\noindent \textbf {Актуальность и значимость проекта \\}
+Разработка портативного комплекса для мониторинга ЭКГ имеет значительное практическое значение. Он позволяет:
+
+\begin{itemize}
+\item Обеспечить круглосуточное наблюдение за состоянием сердца пациентов, не ограничивая их мобильность.
+\item Снизить нагрузку на медицинский персонал за счет автоматизации сбора и первичной обработки данных.
+\item Повысить точность диагностики благодаря постоянному потоку данных и возможности их анализа в динамике.
+\end{itemize}
+
+% ========== Task definition ==========
+\newpage
+\section{Постановка задачи}
+
+\noindent \textbf{Модуль снятия ЭКГ.}
+
+\begin{enumerate}
+
+    \item \textbf{Аппаратная часть.}
+    \begin{itemize}
+        \item Выбор технологий передачи данных.
+        \item Выбор модуля снятия ЭКГ.
+        \item Выбор микроконтроллера.
+        \item Разработка 3D модели.
+        \item Создания схемы подключения всех компонентов.
+    \end{itemize}
+
+    \item \textbf{Программная часть.}
+    \begin{itemize}
+        \item Выбор протокола передачи данных на приложение.
+        \item Выбор фреймворка и языка программирования микроконтроллера.
+    \end{itemize}
+
+\end{enumerate}
+
+\noindent \textbf{Компьютерное приложение.}
+
+\begin{itemize}
+    \item Выбор фреймворка для разработки приложения.
+    \item Реализовать передачу данных с компьютера на сервер.
+    \item Включить в приложение механизм авторизации для обеспечения безопасности передаваемых данных.
+\end{itemize}
+
+\noindent \textbf{Веб-приложение.}
+
+\begin{enumerate}
+
+    \item \textbf{Frontend.}
+    \begin{itemize}
+        \item Выбор фреймворка.
+        \item Разработка интуитивно понятного пользовательского интерфейса \\
+            для конечных пользователей.
+    \end{itemize}
+
+    \item \textbf{Backend.}
+    \begin{itemize}
+        \item Выбор фреймворка и систему управления реляционными базами данных.
+        \item Реализовать API для взаимодействия с Fronted частью веб-приложения.
+        \item Обеспечить меры безопасности для передачи и хранения медицинских данных.
+    \end{itemize}
+
+\end{enumerate}
+
+% ========== Work made ==========
+\newpage
+\section{Проведенная работа}
+
+% ========== Conclusion ==========
+\newpage
+\section{Заключение}
+
+% ========== References ==========
+\newpage
+\section{Список литературы}
+
+% ========== Additional 
+\newpage
+\section{Приложение}
+
+\end{spacing}
+\end{document}
